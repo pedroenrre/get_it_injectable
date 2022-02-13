@@ -2,11 +2,11 @@ import 'package:get_it_injectable/models/user_model.dart';
 import 'package:get_it_injectable/repositories/auth_repository.dart';
 
 class SessionManager {
-  SessionManager() {
+  SessionManager(this.authRepository) {
     _getCurrentUser();
   }
 
-  final AuthRepository authRepository = AuthRepository();
+  final AuthRepository authRepository;
 
   User? user;
 

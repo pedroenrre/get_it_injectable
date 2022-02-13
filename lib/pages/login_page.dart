@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:get_it_injectable/managers/session_manager.dart';
+
+import 'home_page.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
+
+  final SessionManager sessionManager = GetIt.I.get();
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +18,11 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           child: const Text('Entrar'),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => HomePage()),
+            );
+          },
         ),
       ),
     );
